@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowUpRight, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react'
@@ -22,50 +22,36 @@ const products = [
 ]
 
 export function ProductCategories() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [cardsToShow, setCardsToShow] = useState(3)
   const [isPaused, setIsPaused] = useState(false)
+  const [direction, setDirection] = useState<'left' | 'right'>('left')
 
-  // Dynamically update items per view based on viewport width
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardsToShow(1)
-      } else if (window.innerWidth < 1024) {
-        setCardsToShow(2)
-      } else {
-        setCardsToShow(3)
-      }
-    }
-
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  const maxIndex = Math.max(0, products.length - cardsToShow)
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
-  }
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
-  }
-
-  // Autoplay functionality
-  useEffect(() => {
-    if (isPaused) return
-
-    const timer = setInterval(() => {
-      handleNext()
-    }, 3500)
-
-    return () => clearInterval(timer)
-  }, [isPaused, maxIndex, cardsToShow])
+  // Duplicate items array for seamless 360-degree looping marquee
+  const marqueeItems = [...products, ...products]
 
   return (
-    <section className="py-28 bg-muted/40">
+    <section className="py-28 bg-muted/40 overflow-hidden w-full relative">
+      {/* Styles for continuous infinite marquee animation */}
+      <style jsx>{`
+        @keyframes marqueeScrollLeft {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marqueeScrollRight {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee-left {
+          animation: marqueeScrollLeft 45s linear infinite;
+        }
+        .animate-marquee-right {
+          animation: marqueeScrollRight 45s linear infinite;
+        }
+        .marquee-paused {
+          animation-play-state: paused !important;
+        }
+      `}</style>
+
+      {/* Header Container */}
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-brand-blue font-semibold mb-4">
@@ -80,94 +66,100 @@ export function ProductCategories() {
             From carbide cutting tools to precision measurement instruments — everything your manufacturing operation needs.
           </p>
         </FadeIn>
+      </div>
 
-        {/* Carousel Container with Pause on Hover */}
-        <div 
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
-              }}
-            >
-              {products.map((product) => (
-                <div
-                  key={product.id}
-                  className="flex-shrink-0 p-3"
-                  style={{ width: `${100 / cardsToShow}%` }}
-                >
-                  <div className="group flex flex-col justify-between h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300">
-                    <div>
-                      {/* Card Image Header */}
-                      <Link href={`/products/${product.id}`} className="relative block aspect-[16/9] overflow-hidden">
-                        <Image
-                          src={product.img}
-                          alt={product.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                        {product.tag && (
-                          <span className="absolute top-3 left-3 text-[10px] tracking-widest uppercase font-semibold bg-brand-blue text-white px-2.5 py-1 rounded-full">
-                            {product.tag}
-                          </span>
-                        )}
-                        <span className="absolute top-3 right-3 text-[10px] tracking-widest uppercase font-semibold bg-black/40 backdrop-blur-sm text-white px-2.5 py-1 rounded-full">
-                          {product.category}
+      {/* Full-Width Marquee Container */}
+      <div 
+        className="relative w-full"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left & Right Gradient Fade Masks (Smooth In/Out Entry) */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-muted/90 via-muted/40 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-muted/90 via-muted/40 to-transparent z-20 pointer-events-none" />
+
+        {/* Marquee Track */}
+        <div className="overflow-hidden w-full py-4">
+          <div
+            className={`flex gap-6 w-max ${
+              direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
+            } ${isPaused ? 'marquee-paused' : ''}`}
+          >
+            {marqueeItems.map((product, index) => (
+              <div
+                key={`${product.id}-${index}`}
+                className="w-[280px] sm:w-[320px] lg:w-[360px] flex-shrink-0"
+              >
+                <div className="group flex flex-col justify-between h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-brand-blue/40 hover:shadow-2xl transition-all duration-300">
+                  <div>
+                    {/* Card Image Header */}
+                    <Link href={""} className="relative block aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={product.img}
+                        alt={product.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 360px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                      {product.tag && (
+                        <span className="absolute top-3 left-3 text-[10px] tracking-widest uppercase font-semibold bg-brand-blue text-white px-2.5 py-1 rounded-full z-10">
+                          {product.tag}
                         </span>
-                      </Link>
+                      )}
+                      <span className="absolute top-3 right-3 text-[10px] tracking-widest uppercase font-semibold bg-black/40 backdrop-blur-sm text-white px-2.5 py-1 rounded-full z-10">
+                        {product.category}
+                      </span>
+                    </Link>
 
-                      {/* Card Text Content */}
-                      <div className="p-5">
-                        <Link href={`/products/${product.id}`}>
-                          <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-brand-blue transition-colors">
-                            {product.title}
-                          </h3>
-                        </Link>
-                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                          {product.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Card Action Footer */}
-                    <div className="p-5 pt-0">
-                      <Link
-                        href="/contact"
-                        className="w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold py-2.5 bg-brand-blue text-white rounded-full hover:bg-primary/90 transition-colors"
-                      >
-                        <MessageSquare size={13} />
-                        Enquire
+                    {/* Card Text Content */}
+                    <div className="p-5">
+                      <Link href={`/products/${product.id}`}>
+                        <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-brand-blue transition-colors">
+                          {product.title}
+                        </h3>
                       </Link>
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                        {product.desc}
+                      </p>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Navigation Controls */}
-          <button
-            onClick={handlePrev}
-            aria-label="Previous Slide"
-            className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-md flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-10"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button
-            onClick={handleNext}
-            aria-label="Next Slide"
-            className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-md flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-10"
-          >
-            <ChevronRight size={20} />
-          </button>
+                  {/* Card Action Footer */}
+                  <div className="p-5 pt-0">
+                    <Link
+                      href="/contact"
+                      className="w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold py-2.5 bg-brand-blue text-white rounded-full hover:bg-primary/90 transition-colors"
+                    >
+                      <MessageSquare size={13} />
+                      Enquire
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Direction Controls */}
+        <button
+          onClick={() => setDirection('right')}
+          aria-label="Slide Left to Right"
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 backdrop-blur-md border border-border shadow-xl flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-30"
+        >
+          <ChevronLeft size={22} />
+        </button>
+        <button
+          onClick={() => setDirection('left')}
+          aria-label="Slide Right to Left"
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 backdrop-blur-md border border-border shadow-xl flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-30"
+        >
+          <ChevronRight size={22} />
+        </button>
+      </div>
+
+      {/* Footer CTA */}
+      <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mt-12" delay={0.2}>
           <Link
             href="/products"
