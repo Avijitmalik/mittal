@@ -164,25 +164,25 @@ export const brands: Brand[] = [
       },
     ],
   },
-  {
-    name: "Hea-Rok",
-    slug: "hea-rok",
-    logo: "/images/autho/hea-rok.png",
-    pdfs: [
-      {
-        url: "/pdf/hea-rok-catalog.pdf",
-        image: "/images/pdfs/hea-rok-preview.jpg",
-        title: "Hea-Rok Product Directory",
-        desc: "Brochure outlining machinery component solutions and specifications.",
-        pages: "30 Pages",
-        size: "5 MB",
-        type: "PDF",
-        featured: false,
-        cover: "/images/about-hero.jpg",
-        categories: ["Machinery Components", "Hardware"],
-      },
-    ],
-  },
+  // {
+  //   name: "Hea-Rok",
+  //   slug: "hea-rok",
+  //   logo: "/images/autho/hea-rok.png",
+  //   pdfs: [
+  //     {
+  //       url: "/pdf/hea-rok-catalog.pdf",
+  //       image: "/images/pdfs/hea-rok-preview.jpg",
+  //       title: "Hea-Rok Product Directory",
+  //       desc: "Brochure outlining machinery component solutions and specifications.",
+  //       pages: "30 Pages",
+  //       size: "5 MB",
+  //       type: "PDF",
+  //       featured: false,
+  //       cover: "/images/about-hero.jpg",
+  //       categories: ["Machinery Components", "Hardware"],
+  //     },
+  //   ],
+  // },
   {
     name: "Insize",
     slug: "insize",
@@ -331,7 +331,7 @@ export const brands: Brand[] = [
   {
     name: "Tooling Solutions",
     slug: "tooling-solutions",
-    logo: "/images/autho/tooling sol.jpg",
+    logo: "/images/autho/toolingsol.jpg",
     pdfs: [
       {
         url: "/pdf/tooling-solutions-catalog.pdf",
