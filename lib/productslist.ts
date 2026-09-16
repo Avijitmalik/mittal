@@ -426,11 +426,11 @@ export const brands: Brand[] = [
   {
     name: "Korloy",
     slug: "korloy",
-    logo: "/images/autho/korloy.png",
+    logo: "/images/autho/korloy.jpg",
     pdfs: [
       {
         url: "/pdf/korloy/KorloyAerospaceIndustryCatalog.pdf",
-        image: "/images/autho/korloy.png",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Aerospace Industry Catalog",
         desc: "Cutting tool solutions designed specifically for the aerospace industry.",
         pages: "40 Pages",
@@ -442,7 +442,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyAutomotiveIndustryCatalog.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Automotive Industry Catalog",
         desc: "High-efficiency tooling solutions for automotive component manufacturing.",
         pages: "36 Pages",
@@ -454,7 +454,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyCeramicInserts.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Ceramic Inserts",
         desc: "High-speed ceramic inserts for heat-resistant alloys and hardened steel.",
         pages: "24 Pages",
@@ -466,7 +466,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyH-StarEndmill.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy H-Star Endmill",
         desc: "High-performance solid carbide endmills for high-speed machining.",
         pages: "20 Pages",
@@ -478,7 +478,8 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyHardToCutMaterialCuttingSolution.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
+
         title: "Korloy Hard To Cut Material Cutting Solution",
         desc: "Specialized cutting solutions for titanium, Inconel, and difficult materials.",
         pages: "28 Pages",
@@ -490,7 +491,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyHexaBlade.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Hexa Blade",
         desc: "Hexagonal 6-corner grooving and parting blades for increased cost-efficiency.",
         pages: "16 Pages",
@@ -502,7 +503,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyHoleMakingSolution.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Hole Making Solution",
         desc: "Comprehensive lineup of drills, indexable drills, and reaming tools.",
         pages: "48 Pages",
@@ -514,7 +515,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyMicroEndmillPCDEndmill.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Micro Endmill (PCD Endmill)",
         desc: "Precision PCD micro endmills for fine micro-machining applications.",
         pages: "18 Pages",
@@ -526,7 +527,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyMoldDieSolution.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Mold & Die Solution",
         desc: "Advanced milling, turning, and drilling solutions for mold and die steel.",
         pages: "32 Pages",
@@ -538,7 +539,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyPipeIndustryCatalog.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Pipe Industry Catalog",
         desc: "Dedicated cutting tools for pipe machining, scarfing, and threading.",
         pages: "22 Pages",
@@ -550,7 +551,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyRailwayIndustryCatalog.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Railway Industry Catalog",
         desc: "Tooling systems for wheel machining, rail maintenance, and heavy turning.",
         pages: "26 Pages",
@@ -562,7 +563,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyRecommendedCuttingConditions.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Recommended Cutting Conditions",
         desc: "Technical parameters, speeds, feeds, and machining reference guide.",
         pages: "50 Pages",
@@ -574,7 +575,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloySolidEndmillBallnose.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Solid Endmill & Ballnose",
         desc: "Full catalogue of square, radius, and ballnose solid carbide endmills.",
         pages: "64 Pages",
@@ -586,7 +587,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloySpecialTooling.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Special Tooling",
         desc: "Custom engineered tooling solutions tailored for unique manufacturing requirements.",
         pages: "20 Pages",
@@ -598,7 +599,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/korloy/KorloyThreadingCatalog.pdf",
-        image: "/images/pdfs/korloy-preview.jpg",
+        image: "/images/autho/korloy.jpg",
         title: "Korloy Threading Catalog",
         desc: "High-accuracy thread turning, thread milling, and tapping solutions.",
         pages: "30 Pages",
@@ -644,11 +645,11 @@ export const brands: Brand[] = [
   {
     name: "Mittal",
     slug: "mittal",
-    logo: "/images/autho/mittal.png", // Update logo path if needed
+    logo: "/mittallogo.png",
     pdfs: [
       {
         url: "/pdf/mittal/Mittal Brochure.pdf",
-        image: "/images/pdfs/mittal-preview.jpg",
+        image: "/images/mittallogo.png",
         title: "Mittal Brochure",
         desc: "Comprehensive brochure outlining product lines and services.",
         pages: "20 Pages",
@@ -660,7 +661,7 @@ export const brands: Brand[] = [
       },
       {
         url: "/pdf/mittal/MITTAL INDUSTRIAL TOOLS.pdf",
-        image: "/images/pdfs/mittal-preview.jpg",
+        image: "/images/mittallogo.png",
         title: "Mittal Industrial Tools Catalog",
         desc: "Full catalogue of high-grade industrial tools and hardware.",
         pages: "32 Pages",
@@ -718,11 +719,11 @@ export const brands: Brand[] = [
   {
     name: "YG",
     slug: "yg-1",
-    logo: "/images/autho/yg.png", // Update logo path if needed
+    logo: "/images/autho/yg_1_india_logo.jpg",
     pdfs: [
       {
-        url: "/pdf/yg/YG Automotive Industry Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGAutomotiveIndustryCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Automotive Industry Catalog",
         desc: "Cutting tool solutions engineered for the automotive manufacturing sector.",
         pages: "36 Pages",
@@ -733,8 +734,8 @@ export const brands: Brand[] = [
         categories: ["Automotive", "Cutting Tools", "Machining"],
       },
       {
-        url: "/pdf/yg/YG Chamfreing Tools Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGChamfreingToolsCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Chamfering Tools Catalog",
         desc: "High-precision chamfering mills and edge-finishing tools.",
         pages: "20 Pages",
@@ -745,8 +746,8 @@ export const brands: Brand[] = [
         categories: ["Chamfering Tools", "Milling", "Precision Tools"],
       },
       {
-        url: "/pdf/yg/YG Composite Materials.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGCompositeMaterials.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Composite Materials Catalog",
         desc: "Specialized router bits and endmills designed for composite materials.",
         pages: "22 Pages",
@@ -757,8 +758,8 @@ export const brands: Brand[] = [
         categories: ["Composites", "Routers", "Specialized Cutting"],
       },
       {
-        url: "/pdf/yg/YG Die & Mold Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGDieMoldCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Die & Mold Catalog",
         desc: "Advanced milling and finish tooling solutions for die & mold steel.",
         pages: "40 Pages",
@@ -769,8 +770,8 @@ export const brands: Brand[] = [
         categories: ["Die & Mold", "Milling", "Tooling"],
       },
       {
-        url: "/pdf/yg/YG EV Mills Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGEVMillsCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG EV Mills Catalog",
         desc: "High-performance endmills engineered for electric vehicle component machining.",
         pages: "28 Pages",
@@ -781,8 +782,8 @@ export const brands: Brand[] = [
         categories: ["EV Mills", "Endmills", "Machining"],
       },
       {
-        url: "/pdf/yg/YG i-Xmill Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGi-XmillCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG i-Xmill Catalog",
         desc: "Indexable milling tool series for high-speed finish milling.",
         pages: "24 Pages",
@@ -793,8 +794,8 @@ export const brands: Brand[] = [
         categories: ["i-Xmill", "Indexable Milling", "High Speed"],
       },
       {
-        url: "/pdf/yg/YG Medical Tool Solution.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGMedicalToolSolution.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Medical Tool Solution",
         desc: "Micro-machining and precision tooling tailored for medical devices.",
         pages: "18 Pages",
@@ -805,8 +806,8 @@ export const brands: Brand[] = [
         categories: ["Medical Tools", "Precision", "Micro Tooling"],
       },
       {
-        url: "/pdf/yg/YG Parting & Grooving.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGPartingGrooving.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Parting & Grooving Catalog",
         desc: "High-rigidity parting off and grooving insert systems.",
         pages: "30 Pages",
@@ -817,8 +818,8 @@ export const brands: Brand[] = [
         categories: ["Parting", "Grooving", "Turning Tools"],
       },
       {
-        url: "/pdf/yg/YG Solid Carbide Catalog.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGSolidCarbideCatalog.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Solid Carbide Catalog",
         desc: "Comprehensive range of solid carbide drills, endmills, and reamers.",
         pages: "52 Pages",
@@ -829,8 +830,8 @@ export const brands: Brand[] = [
         categories: ["Solid Carbide", "Drills", "Endmills"],
       },
       {
-        url: "/pdf/yg/YG Solid Miniature Turning.pdf",
-        image: "/images/pdfs/yg-preview.jpg",
+        url: "/pdf/yg/YGSolidMiniatureTurning.pdf",
+        image: "/images/autho/yg_1_india_logo.png",
         title: "YG Solid Miniature Turning Catalog",
         desc: "Miniature boring and turning tools designed for Swiss-type automatic lathes.",
         pages: "26 Pages",
@@ -845,7 +846,7 @@ export const brands: Brand[] = [
   {
     name: "Singla Forging",
     slug: "singla-forging",
-    logo: "/images/autho/singla-forging.png",
+    logo: "/images/customer/singla.jpg",
     pdfs: [
       {
         url: "",
@@ -864,7 +865,7 @@ export const brands: Brand[] = [
   {
     name: "PRF",
     slug: "prf",
-    logo: "/images/autho/prf.png",
+    logo: "/images/customer/prf.png",
     pdfs: [
       {
         url: "",
@@ -883,7 +884,7 @@ export const brands: Brand[] = [
   {
     name: "MT Autocraft",
     slug: "mt-autocraft",
-    logo: "/images/autho/mt-autocraft.png",
+    logo: "/images/customer/mta_autocraft.jpg",
     pdfs: [
       {
         url: "",
@@ -902,7 +903,7 @@ export const brands: Brand[] = [
   {
     name: "MC",
     slug: "mc",
-    logo: "/images/autho/mc.png",
+    logo: "/images/customer/mc.png",
     pdfs: [
       {
         url: "",
@@ -921,7 +922,7 @@ export const brands: Brand[] = [
   {
     name: "JPF",
     slug: "jpf",
-    logo: "/images/autho/jpf.png",
+    logo: "/images/customer/jpf.png",
     pdfs: [
       {
         url: "",
@@ -940,7 +941,7 @@ export const brands: Brand[] = [
   {
     name: "DP Industries",
     slug: "dp-industries",
-    logo: "/images/autho/dp-industries.png",
+    logo: "/images/customer/dpindustries.png",
     pdfs: [
       {
         url: "",
@@ -959,7 +960,7 @@ export const brands: Brand[] = [
   {
     name: "BLW Engine Valves",
     slug: "blw-engine-valves",
-    logo: "/images/autho/blw-engine-valves.png",
+    logo: "/images/customer/blw.jpg",
     pdfs: [
       {
         url: "",
@@ -978,7 +979,7 @@ export const brands: Brand[] = [
   {
     name: "Aero Fasteners",
     slug: "aero-fasteners",
-    logo: "/images/autho/aero-fasteners.png",
+    logo: "/images/customer/aero.png",
     pdfs: [
       {
         url: "",
@@ -997,7 +998,7 @@ export const brands: Brand[] = [
   {
     name: "Zenso Technoforge",
     slug: "zenso-technoforge",
-    logo: "/images/autho/zenso-technoforge.png",
+    logo: "/images/customer/zenso.jpg",
     pdfs: [
       {
         url: "",

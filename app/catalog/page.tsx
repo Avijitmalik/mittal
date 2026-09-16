@@ -155,7 +155,7 @@ export default function CatalogPage() {
                           onClick={() => handleDownload(cat.url, cat.title)}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full flex items-center justify-center gap-2 bg-brand-blue text-white text-[13px] font-semibold py-3 rounded-full hover:bg-primary/90 transition-colors"
+                          className="w-full flex items-center cursor-pointer justify-center gap-2 bg-brand-blue text-white text-[13px] font-semibold py-3 rounded-full hover:bg-primary/90 transition-colors"
                         >
                           {isDownloading ? (
                             <><CheckCircle2 size={14} /> Downloading...</>
