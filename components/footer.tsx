@@ -127,8 +127,8 @@ export function Footer() {
             <li className="flex items-center gap-3">
               <Phone size={14} className="text-[#2F6FED] flex-shrink-0" />
               <div className="flex flex-col gap-1">
-                <a href="tel:+917949224038" className="text-sm text-white/60 hover:text-white transition-colors">
-                  +91 94160 53439
+                <a href="tel:+919215601909" className="text-sm text-white/60 hover:text-white transition-colors">
+                  +91 92156 01909
                 </a>
                 {/* <a href="tel:+918569913390" className="text-sm text-white/60 hover:text-white transition-colors">
                   +91 85699 13390
@@ -137,8 +137,8 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={14} className="text-[#2F6FED] flex-shrink-0" />
-              <a href="mailto:info@mittaltools.com" className="text-sm text-white/60 hover:text-white transition-colors">
-                info@mittaltools.com
+              <a href="mailto:mittalindustrialtools@gmail.com" className="text-sm text-white/60 hover:text-white transition-colors">
+                mittalindustrialtools@gmail.com
               </a>
             </li>
           </ul>
@@ -159,3 +159,4 @@ export function Footer() {
     </footer>
   )
 }
+

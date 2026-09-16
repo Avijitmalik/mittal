@@ -1,10 +1,10 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { ArrowUpRight, MessageSquare } from 'lucide-react'
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion'
+import { ArrowUpRight, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react'
+import { FadeIn } from '@/components/motion'
 
 const products = [
   { id: 1, title: 'Solid Carbide Drill', category: 'Cutting Tools', desc: 'High-performance solid carbide drills with TiAlN coating for superior wear resistance and precision hole-making in steel, cast iron, and alloys.', img: '/images/produtmateriallogo/Solid-Carbide-Drill.jpg', tag: 'Best Seller' },
@@ -20,9 +20,49 @@ const products = [
   { id: 11, title: 'Threading Insert Set', category: 'Inserts', desc: 'Metric and inch threading inserts for external and internal thread turning. Multi-grade options for various workpiece materials.', img: '/images/produtmateriallogo/Threading-Insert-Set.png', tag: null },
   { id: 12, title: 'Digital Micrometer', category: 'Metrology', desc: '0–25mm digital outside micrometer with 0.001mm resolution. Ratchet thimble stop for consistent measuring force.', img: '/images/produtmateriallogo/Digital-Micrometer.png', tag: null },
 ]
+
 export function ProductCategories() {
-  // Display only the first 6 items on this page
-  const visibleProducts = products.slice(0, 6)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [cardsToShow, setCardsToShow] = useState(3)
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Dynamically update items per view based on viewport width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCardsToShow(1)
+      } else if (window.innerWidth < 1024) {
+        setCardsToShow(2)
+      } else {
+        setCardsToShow(3)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const maxIndex = Math.max(0, products.length - cardsToShow)
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
+  }
+
+  // Autoplay functionality
+  useEffect(() => {
+    if (isPaused) return
+
+    const timer = setInterval(() => {
+      handleNext()
+    }, 3500)
+
+    return () => clearInterval(timer)
+  }, [isPaused, maxIndex, cardsToShow])
 
   return (
     <section className="py-28 bg-muted/40">
@@ -41,59 +81,92 @@ export function ProductCategories() {
           </p>
         </FadeIn>
 
-        {/* 3-column grid showing first 6 products */}
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleProducts.map((product) => (
-            <StaggerItem key={product.id}>
-              <div className="group flex flex-col justify-between h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300">
-                <div>
-                  {/* Card Image Header */}
-                  <Link href={`/products/${product.id}`} className="relative block aspect-[16/9] overflow-hidden">
-                    <Image
-                      src={product.img}
-                      alt={product.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                    {product.tag && (
-                      <span className="absolute top-3 left-3 text-[10px] tracking-widest uppercase font-semibold bg-brand-blue text-white px-2.5 py-1 rounded-full">
-                        {product.tag}
-                      </span>
-                    )}
-                    <span className="absolute top-3 right-3 text-[10px] tracking-widest uppercase font-semibold bg-black/40 backdrop-blur-sm text-white px-2.5 py-1 rounded-full">
-                      {product.category}
-                    </span>
-                  </Link>
+        {/* Carousel Container with Pause on Hover */}
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
+              }}
+            >
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex-shrink-0 p-3"
+                  style={{ width: `${100 / cardsToShow}%` }}
+                >
+                  <div className="group flex flex-col justify-between h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300">
+                    <div>
+                      {/* Card Image Header */}
+                      <Link href={`/products/${product.id}`} className="relative block aspect-[16/9] overflow-hidden">
+                        <Image
+                          src={product.img}
+                          alt={product.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                        {product.tag && (
+                          <span className="absolute top-3 left-3 text-[10px] tracking-widest uppercase font-semibold bg-brand-blue text-white px-2.5 py-1 rounded-full">
+                            {product.tag}
+                          </span>
+                        )}
+                        <span className="absolute top-3 right-3 text-[10px] tracking-widest uppercase font-semibold bg-black/40 backdrop-blur-sm text-white px-2.5 py-1 rounded-full">
+                          {product.category}
+                        </span>
+                      </Link>
 
-                  {/* Card Text Content */}
-                  <div className="p-5">
-                    <Link href={`/products/${product.id}`}>
-                      <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-brand-blue transition-colors">
-                        {product.title}
-                      </h3>
-                    </Link>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                      {product.desc}
-                    </p>
+                      {/* Card Text Content */}
+                      <div className="p-5">
+                        <Link href={`/products/${product.id}`}>
+                          <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-brand-blue transition-colors">
+                            {product.title}
+                          </h3>
+                        </Link>
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                          {product.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card Action Footer */}
+                    <div className="p-5 pt-0">
+                      <Link
+                        href="/contact"
+                        className="w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold py-2.5 bg-brand-blue text-white rounded-full hover:bg-primary/90 transition-colors"
+                      >
+                        <MessageSquare size={13} />
+                        Enquire
+                      </Link>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Card Action Footer */}
-                <div className="p-5 pt-0">
-                  <Link
-                    href="/contact"
-                    className="w-full flex items-center justify-center gap-1.5 text-[12px] font-semibold py-2.5 bg-brand-blue text-white rounded-full hover:bg-primary/90 transition-colors"
-                  >
-                    <MessageSquare size={13} />
-                    Enquire
-                  </Link>
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+          {/* Navigation Controls */}
+          <button
+            onClick={handlePrev}
+            aria-label="Previous Slide"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-md flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-10"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={handleNext}
+            aria-label="Next Slide"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-md border border-border shadow-md flex items-center justify-center text-foreground hover:bg-brand-blue hover:text-white transition-all z-10"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
 
         <FadeIn className="text-center mt-12" delay={0.2}>
           <Link

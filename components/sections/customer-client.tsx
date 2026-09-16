@@ -5,25 +5,24 @@ import { FadeIn } from '@/components/motion'
 import Link from 'next/link'
 
 const brands = [
-  { name: 'Deskar', slug: 'deskar', logo: '/images/autho/deskar.webp' },
-  { name: 'CDBP Tools', slug: 'cdbp-tools', logo: '/images/autho/cdbp.png' },
-  { name: 'Insize', slug: 'insize', logo: '/images/autho/insize.jpg' },
-  { name: 'Mitutoyo', slug: 'mitutoyo', logo: '/images/autho/mitutoyo.jpg' },
-  { name: 'Xtra-Power', slug: 'xtra-power', logo: '/images/autho/xtra-power.png' },
-  { name: 'Bosch', slug: 'bosch', logo: '/images/autho/bosch.png' },
-  { name: 'Baker', slug: 'baker', logo: '/images/autho/BAKER.png' },
-  { name: 'CUMI', slug: 'cumi', logo: '/images/autho/cumi.jpg' },
-  { name: 'Taparia', slug: 'taparia', logo: '/images/autho/taparia.png' },
-  { name: 'Fenner', slug: 'fenner', logo: '/images/autho/fenner.jpg' },     
+  { name: 'Zenso Technoforge', slug: 'zenso-technoforge', logo: '/images/customer/zenso.jpg' },
+  { name: 'Singla Forging Pvt. Ltd.', slug: 'singla-forging', logo: '/images/customer/singla.jpg' },
+  { name: 'PRF', slug: 'prf', logo: '/images/customer/prf.png' },
+  { name: 'MT Autocraft', slug: 'mt-autocraft', logo: '/images/customer/mta_autocraft.jpg' },
+  { name: 'MC', slug: 'mc', logo: '/images/customer/mc.png' },
+  { name: 'JPF', slug: 'jpf', logo: '/images/customer/jpf.png' },
+  { name: 'DP Industries', slug: 'dp-industries', logo: '/images/customer/dpindustries.png' },
+  { name: 'BLW Engine Valves', slug: 'blw-engine-valves', logo: '/images/customer/blw.jpg' },
+  { name: 'Aero Fasteners Pvt. Ltd.', slug: 'aero-fasteners', logo: '/images/customer/aero.png' },
 ]
 
-export function MajorCustomer() {
+export function CustomerClient() {
   return (
     <section className="py-20 bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mb-12">
           <span className="text-[20px] tracking-[0.25em] uppercase text-muted-foreground font-semibold">
-            some of our eminent clients 
+            some of our major client
           </span>
         </FadeIn>
 

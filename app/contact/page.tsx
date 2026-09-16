@@ -26,14 +26,14 @@ const contactDetails = [
   {
     icon: Phone,
     title: 'Phone',
-    lines: ['+91 7949224038'],
-    href: 'tel:+917949224038',
+    lines: ['+91 92156 01909'],
+    href: 'tel:+9192156 01909',
   },
   {
     icon: Mail,
     title: 'Email',
-    lines: ['info@mittaltools.com'],
-    href: 'mailto:info@mittaltools.com',
+    lines: ['mittalindustrialtools@gmail.com'],
+    href: 'mailto:mittalindustrialtools@gmail.com',
   },
   {
     icon: MapPin,

@@ -9,6 +9,7 @@ import { StatsSection } from '@/components/sections/stats-section'
 import { CatalogCTA } from '@/components/sections/catalog-cta'
 import { ContactPreview } from '@/components/sections/contact-preview'
 import { MajorCustomer } from '@/components/sections/major-customer'
+import { CustomerClient } from '@/components/sections/customer-client'
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ProductCategories />
       <BrandsMarquee />
       <MajorCustomer/>
+      <CustomerClient/>
       <IndustriesPreview />
       <WhyChooseUs />
       <StatsSection />
