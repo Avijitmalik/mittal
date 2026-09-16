@@ -292,7 +292,7 @@ export const brands: Brand[] = [
   },
   {
     name: "Size Control",
-    slug: "size-control",
+    slug: "sizecontrol",
     logo: "/images/autho/sizecontrol.png",
     pdfs: [
       {
@@ -673,7 +673,6 @@ export const brands: Brand[] = [
       },
     ],
   },
-
   // Taparia
   {
     name: "Taparia",
@@ -718,11 +717,10 @@ export const brands: Brand[] = [
       },
     ],
   },
-
   // YG
   {
     name: "YG",
-    slug: "yg",
+    slug: "yg-1",
     logo: "/images/autho/yg.png", // Update logo path if needed
     pdfs: [
       {
