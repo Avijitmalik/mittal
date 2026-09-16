@@ -230,23 +230,23 @@ export default function CatalogPage({ params }: PageProps) {
                           )}
                           {main.type && <span>{main.type}</span>}
                         </div>
-                        <motion.button
-                          onClick={() => handleDownload(main.url, main.title)}
-                          disabled={isDownloading}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="flex items-center gap-2 bg-white text-[#1F3A5F] text-sm font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-all disabled:opacity-80"
-                        >
-                          {isDownloading ? (
-                            <>
-                              <Loader2 size={16} className="animate-spin text-brand-blue" /> Downloading...
-                            </>
-                          ) : (
-                            <>
-                              <Download size={16} /> Download Full Catalog
-                            </>
-                          )}
-                        </motion.button>
+                      <motion.button
+  onClick={() => main.url && handleDownload(main.url, main.title)}
+  disabled={isDownloading || !main.url || !main.url.trim()}
+  whileHover={main.url ? { scale: 1.02 } : undefined}
+  whileTap={main.url ? { scale: 0.98 } : undefined}
+  className="flex items-center gap-2 bg-white text-[#1F3A5F] text-sm font-bold px-8 py-4 rounded-full hover:bg-blue-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {isDownloading ? (
+    <>
+      <Loader2 size={16} className="animate-spin text-brand-blue" /> Downloading...
+    </>
+  ) : (
+    <>
+      <Download size={16} /> Download Full Catalog
+    </>
+  )}
+</motion.button>
                       </div>
                       <div className="hidden md:block">
                         <div className="bg-white/5 border border-white/10 rounded-xl p-6 aspect-[3/4] flex items-center justify-center relative overflow-hidden group">
@@ -307,23 +307,23 @@ export default function CatalogPage({ params }: PageProps) {
                           {cat.type && <span>{cat.type}</span>}
                         </div>
 
-                        <motion.button
-                          onClick={() => handleDownload(cat.url, cat.title)}
-                          disabled={isDownloading}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full flex items-center justify-center gap-2 bg-brand-blue text-white text-[13px] font-semibold py-3 rounded-full hover:bg-primary/90 transition-colors disabled:opacity-80"
-                        >
-                          {isDownloading ? (
-                            <>
-                              <Loader2 size={14} className="animate-spin" /> Downloading...
-                            </>
-                          ) : (
-                            <>
-                              <Download size={14} /> Download PDF
-                            </>
-                          )}
-                        </motion.button>
+                       <motion.button
+  onClick={() => cat?.url && handleDownload(cat.url, cat.title)}
+  disabled={isDownloading || !cat?.url || !cat.url.trim()}
+  whileHover={cat?.url && cat.url.trim() ? { scale: 1.02 } : undefined}
+  whileTap={cat?.url && cat.url.trim() ? { scale: 0.98 } : undefined}
+  className="w-full flex items-center justify-center gap-2 bg-brand-blue text-white text-[13px] font-semibold py-3 rounded-full hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {isDownloading ? (
+    <>
+      <Loader2 size={14} className="animate-spin" /> Downloading...
+    </>
+  ) : (
+    <>
+      <Download size={14} /> Download PDF
+    </>
+  )}
+</motion.button>
                       </div>
                     </div>
                   </div>
