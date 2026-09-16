@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light Theme */
+  --background: #F7F7F5;
+  --foreground: #1E1E1E;
+  --card: #FFFFFF;
+  --card-foreground: #1E1E1E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1E1E;
+  --primary: #1F3A5F;
+  --primary-foreground: #F7F7F5;
+  --secondary: #D9D9D9;
+  --secondary-foreground: #1E1E1E;
+  --muted: #EEEEEC;
+  --muted-foreground: #7A7A7A;
+  --accent: #1F3A5F;
+  --accent-foreground: #F7F7F5;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: #D9D9D9;
+  --input: #D9D9D9;
+  --ring: #1F3A5F;
+  --radius: 0.5rem;
+
+  /* Brand tokens */
+  --brand-blue: #1F3A5F;
+  --brand-blue-accent: #2F6FED;
+  --steel-grey: #7A7A7A;
+  --silver: #D9D9D9;
+  --off-white: #F7F7F5;
+  --charcoal: #1E1E1E;
+  --glass-bg: rgba(247, 247, 245, 0.7);
+  --glass-border: rgba(209, 209, 209, 0.4);
+}
+
+.dark {
+  /* Dark Theme */
+  --background: #0E0E10;
+  --foreground: #F5F5F5;
+  --card: #1B1B1D;
+  --card-foreground: #F5F5F5;
+  --popover: #1B1B1D;
+  --popover-foreground: #F5F5F5;
+  --primary: #2F6FED;
+  --primary-foreground: #F5F5F5;
+  --secondary: #2A2A2D;
+  --secondary-foreground: #F5F5F5;
+  --muted: #1B1B1D;
+  --muted-foreground: #888890;
+  --accent: #2F6FED;
+  --accent-foreground: #F5F5F5;
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: rgba(255,255,255,0.08);
+  --input: #2A2A2D;
+  --ring: #2F6FED;
+
+  /* Brand tokens dark */
+  --brand-blue: #2F6FED;
+  --brand-blue-accent: #5B92F8;
+  --steel-grey: #888890;
+  --silver: #3A3A3D;
+  --glass-bg: rgba(27, 27, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-accent: var(--brand-blue-accent);
+  --color-steel: var(--steel-grey);
+  --color-silver: var(--silver);
+  --color-off-white: var(--off-white);
+  --color-charcoal: var(--charcoal);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Glass effect */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Hover lift */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--silver); border-radius: 3px; }
