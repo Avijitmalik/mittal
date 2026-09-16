@@ -34,14 +34,14 @@ export function BrandsMarquee() {
             <Link
               key={`${brand.slug}-${i}`}
               href={`/catalog/${brand.slug}`}
-              className="relative w-full aspect-square flex items-center justify-center p-4 bg-background/50 rounded-lg border border-border/50 hover:border-brand-blue/50 transition-all group overflow-hidden"
+              className="relative w-full aspect-square flex items-center justify-center p-4 rounded-lg border border-border/50  transition-all group overflow-hidden"
             >
               <div className="relative w-full h-full">
                 <Image
                   src={brand.logo}
                   alt={brand.name}
                   fill
-                  className="object-contain opacity-80 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                  className="object-contain opacity-80 group-hover:opacity-100 transition-opacity filter"
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
                 />
               </div>

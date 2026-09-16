@@ -39,7 +39,7 @@ export function CustomerClient() {
                   src={brand.logo}
                   alt={brand.name}
                   fill
-                  className="object-contain opacity-80 group-hover:opacity-100 transition-opacity filter grayscale group-hover:grayscale-0"
+                  className="object-contain opacity-80 group-hover:opacity-100 transition-opacity filter"
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 20vw"
                 />
               </div>

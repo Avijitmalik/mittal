@@ -117,14 +117,14 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
       >
         <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/30" />
         <span className="text-[10px] tracking-[0.2em] uppercase text-white/30">Scroll</span>
-      </motion.div>
+      </motion.div> */}
     </section>
   )
 }

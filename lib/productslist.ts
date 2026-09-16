@@ -63,7 +63,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/cdbp.png",
     pdfs: [
       {
-        url: "/pdf/cdbp-catalog.pdf",
+        url: "",
         image: "/images/pdfs/cdbp-preview.jpg",
         title: "CDBP Tools Catalog",
         desc: "Comprehensive guide to industrial tools and equipment specifications.",
@@ -82,7 +82,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/conact.png",
     pdfs: [
       {
-        url: "/pdf/conact-catalog.pdf",
+        url: "/pdf/ConactCatalogMarch2026.pdf",
         image: "/images/pdfs/conact-preview.jpg",
         title: "Conact Product Guide",
         desc: "Detailed technical specifications and product range details.",
@@ -132,7 +132,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/deskar.webp",
     pdfs: [
       {
-        url: "/pdf/deskar-catalog.pdf",
+        url: "",
         image: "/images/pdfs/deskar-preview.jpg",
         title: "Deskar Cutting Tools Catalog",
         desc: "High-precision carbide inserts and CNC turning/milling tools.",
@@ -189,7 +189,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/insize.jpg",
     pdfs: [
       {
-        url: "/pdf/insize-catalog.pdf",
+        url: "/pdf/InsizeMeasuringInstrumentsCatalog.pdf",
         image: "/images/pdfs/insize-preview.jpg",
         title: "Insize Precision Measurement Catalog",
         desc: "Complete listing of calipers, micrometers, indicators, and height gauges.",
@@ -277,7 +277,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/mitutoyo.jpg",
     pdfs: [
       {
-        url: "/pdf/mitutoyo-catalog.pdf",
+        url: "",
         image: "/images/pdfs/mitutoyo-preview.jpg",
         title: "Mitutoyo Metrology Catalog",
         desc: "World-leading precision measuring tools and dimensional metrology solutions.",
@@ -391,7 +391,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/xps.png",
     pdfs: [
       {
-        url: "/pdf/xps-catalog.pdf",
+        url: "/pdf/XPScatalogue.pdf",
         image: "/images/pdfs/xps-preview.jpg",
         title: "XPS Product Line Catalog",
         desc: "Detailed technical specifications and product features.",
@@ -410,7 +410,7 @@ export const brands: Brand[] = [
     logo: "/images/autho/xtra-power.png",
     pdfs: [
       {
-        url: "/pdf/xtra-power-catalog.pdf",
+        url: "/pdf/XTRA-POWERCatalog.pdf",
         image: "/images/pdfs/xtra-power-preview.jpg",
         title: "Xtra-Power Tools & Abrasives Catalog",
         desc: "Heavy-duty power tools, diamond saw blades, and abrasive wheels.",
