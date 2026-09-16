@@ -6,15 +6,30 @@ import Link from 'next/link'
 
 const brands = [
   { name: 'CDBP Tools', slug: 'cdbp-tools', logo: '/images/autho/cdbp.png' },
-  { name: 'Conact', slug: 'conact', logo: '/images/autho/conact.png' },
+  // { name: 'Conact', slug: 'conact', logo: '/images/autho/conact.png' },
   { name: 'Deskar', slug: 'deskar', logo: '/images/autho/deskar.webp' },
   { name: 'Insize', slug: 'insize', logo: '/images/autho/insize.jpg' },
-  { name: 'IPOL', slug: 'ipol', logo: '/images/autho/ipol.jpg' },
+  // { name: 'IPOL', slug: 'ipol', logo: '/images/autho/ipol.jpg' },
   { name: 'JK Super Drive', slug: 'jk-super-drive', logo: '/images/autho/super drive.jpg' },
   { name: 'Mitutoyo', slug: 'mitutoyo', logo: '/images/autho/mitutoyo.jpg' },
   { name: 'Size Control', slug: 'size-control', logo: '/images/autho/sizecontrol.png' },
   { name: 'Tooling Solutions', slug: 'tooling-solutions', logo: '/images/autho/tooling sol.jpg' },
-  { name: 'WolCut', slug: 'wolcut', logo: '/images/autho/wolcut.png' },
+  // { name: 'WolCut', slug: 'wolcut', logo: '/images/autho/wolcut.png' },
+  { name: 'Baker', slug: 'baker', logo: '/images/autho/BAKER.png' },
+  { name: 'Bosch', slug: 'bosch', logo: '/images/autho/bosch.png' },
+  { name: 'CDBP Tools', slug: 'cdbp-tools', logo: '/images/autho/cdbp.png' },
+  { name: 'CUMI', slug: 'cumi', logo: '/images/autho/cumi.jpg' },
+  { name: 'Deskar', slug: 'deskar', logo: '/images/autho/deskar.webp' },
+  { name: 'Fenner', slug: 'fenner', logo: '/images/autho/fenner.jpg' },
+  { name: 'Insize', slug: 'insize', logo: '/images/autho/insize.jpg' },
+  { name: 'Xtra-Power', slug: 'xtra-power', logo: '/images/autho/xtra-power.png' },
+  { name: 'JK Super Drive', slug: 'jk-super-drive', logo: '/images/autho/super drive.jpg' },
+  { name: 'MEBA', slug: 'meba', logo: '/images/autho/meba.jpg' },
+  { name: 'Mitutoyo', slug: 'mitutoyo', logo: '/images/autho/mitutoyo.jpg' },
+  { name: 'Size Control', slug: 'size-control', logo: '/images/autho/sizecontrol.png' },
+  { name: 'Taparia', slug: 'taparia', logo: '/images/autho/taparia.png' },
+  { name: 'Tooling Solutions', slug: 'tooling-solutions', logo: '/images/autho/tooling sol.jpg' },
+     
 ]
 
 export function MajorCustomer() {
@@ -23,7 +38,7 @@ export function MajorCustomer() {
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mb-12">
           <span className="text-[11px] tracking-[0.25em] uppercase text-muted-foreground font-semibold">
-            Authorised Brands & Major Customers We Carry
+            Major Customers We Carry
           </span>
         </FadeIn>
 

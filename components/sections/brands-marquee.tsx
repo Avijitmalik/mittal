@@ -5,27 +5,17 @@ import Link from 'next/link'
 import { FadeIn } from '@/components/motion'
 
 const brands = [
-  { name: 'Baker', slug: 'baker', logo: '/images/autho/BAKER.png' },
-  { name: 'Bosch', slug: 'bosch', logo: '/images/autho/bosch.png' },
-  { name: 'CDBP Tools', slug: 'cdbp-tools', logo: '/images/autho/cdbp.png' },
-  { name: 'Conact', slug: 'conact', logo: '/images/autho/conact.png' },
-  {name:  'Korloy', slug:'korloy', logo:'/images/autho/korloy.jpg'},
-  { name: 'CUMI', slug: 'cumi', logo: '/images/autho/cumi.jpg' },
-  { name: 'Deskar', slug: 'deskar', logo: '/images/autho/deskar.webp' },
-  { name: 'Fenner', slug: 'fenner', logo: '/images/autho/fenner.jpg' },
+
+      { name: 'Conact', slug: 'conact', logo: '/images/autho/conact.png' },
+      {name:  'Korloy', slug:'korloy', logo:'/images/autho/korloy.jpg'},
+
   // { name: 'Hea-Rok', slug: 'hea-rok', logo: '/images/autho/hea-rok.png' },
-  { name: 'Insize', slug: 'insize', logo: '/images/autho/insize.jpg' },
-  { name: 'IPOL', slug: 'ipol', logo: '/images/autho/ipol.jpg' },
-  { name: 'JK Super Drive', slug: 'jk-super-drive', logo: '/images/autho/super drive.jpg' },
-  { name: 'MEBA', slug: 'meba', logo: '/images/autho/meba.jpg' },
-  { name: 'Mitutoyo', slug: 'mitutoyo', logo: '/images/autho/mitutoyo.jpg' },
-  { name: 'Size Control', slug: 'size-control', logo: '/images/autho/sizecontrol.png' },
-  { name: 'Taparia', slug: 'taparia', logo: '/images/autho/taparia.png' },
-  { name: 'Tooling Solutions', slug: 'tooling-solutions', logo: '/images/autho/tooling sol.jpg' },
-  { name: 'Vikas Machine Tools', slug: 'vikas-machine-tools', logo: '/images/autho/vikash.webp' },
-  { name: 'WolCut', slug: 'wolcut', logo: '/images/autho/wolcut.png' },
-  { name: 'XPS', slug: 'xps', logo: '/images/autho/xps.png' },
-  { name: 'Xtra-Power', slug: 'xtra-power', logo: '/images/autho/xtra-power.png' },
+
+        { name: 'IPOL', slug: 'ipol', logo: '/images/autho/ipol.jpg' },
+
+      { name: 'Vikas Machine Tools', slug: 'vikas-machine-tools', logo: '/images/autho/vikash.webp' },
+      { name: 'WolCut', slug: 'wolcut', logo: '/images/autho/wolcut.png' },
+      { name: 'XPS', slug: 'xps', logo: '/images/autho/xps.png' },
 ]
 export function BrandsMarquee() {
   return (
@@ -33,7 +23,7 @@ export function BrandsMarquee() {
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn className="text-center mb-12">
           <span className="text-[11px] tracking-[0.25em] uppercase text-muted-foreground font-semibold">
-            Authorised Brands & Major Customers We Carry
+            Authorised Brands Distributors
           </span>
         </FadeIn>
 
