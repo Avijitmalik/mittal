@@ -8,16 +8,16 @@ const contacts = [
   {
     icon: Phone,
     title: 'Call Us',
-    value: '+91 94160 53439',
-    sub: '+91 85699 13390',
-    href: 'tel:+919416053439',
+    value: '+91  92156 01909',
+    sub: '+91  92156 01909',
+    href: 'tel:+91 92156 01909',
   },
   {
     icon: Mail,
     title: 'Email Us',
-    value: 'info@mittaltools.com',
+    value: 'mittalindustrialtools@gmail.com',
     sub: 'We reply within 24 hours',
-    href: 'mailto:info@mittaltools.com',
+    href: 'mailto:mittalindustrialtools@gmail.com',
   },
   {
     icon: MapPin,
