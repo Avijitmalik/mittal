@@ -1,13 +1,15 @@
 'use client'
 
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SiteLayout } from '@/components/site-layout'
 import { FadeIn } from '@/components/motion'
-import { ArrowRight, CheckCircle2, Download, MessageSquare } from 'lucide-react'
+import { CheckCircle2, Download, MessageSquare } from 'lucide-react'
 
 export const industries = [
   {
+    index: 0,
     name: 'Aerospace',
     tagline: 'Flight-critical precision, every time.',
     desc: 'Aerospace components demand the tightest tolerances and absolute reliability. Our tooling solutions help manufacturers achieve the micron-level accuracy required for flight-critical parts, with cutting tools optimised for titanium, Inconel, and aluminium alloys.',
@@ -17,6 +19,7 @@ export const industries = [
     pdfUrl: '/pdf/korloy/KorloyAerospaceIndustryCatalog.pdf',
   },
   {
+    index: 1,
     name: 'Automotive',
     tagline: 'High-volume, zero-defect production.',
     desc: 'The automotive industry demands consistent, high-volume output with zero defects. Our tooling selection supports engine block machining, transmission components, brake systems, and chassis parts across all automotive sub-sectors.',
@@ -26,6 +29,7 @@ export const industries = [
     pdfUrl: '/pdf/korloy/KorloyAutomotiveIndustryCatalog.pdf',
   },
   {
+    index: 2,
     name: 'Precision Engineering',
     tagline: 'Where every micron matters.',
     desc: 'Precision engineering workshops demand tooling that consistently delivers superior surface finish and dimensional accuracy. From jigs and fixtures to complex multi-axis components, our product range is tailored for the most demanding precision work.',
@@ -35,6 +39,7 @@ export const industries = [
     pdfUrl: '/pdf/korloy/KorloyHardToCutMaterialCuttingSolution.pdf',
   },
   {
+    index: 3,
     name: 'Metal Fabrication',
     tagline: 'Structural strength meets precise cutting.',
     desc: 'Metal fabrication encompasses a wide range of cutting, drilling, and forming operations on structural steel, sheet metal, and plates. Our product range covers the full breadth of cutting tools required across fabrication shops.',
@@ -44,6 +49,7 @@ export const industries = [
     pdfUrl: '/pdf/korloy/KorloyHoleMakingSolution.pdf',
   },
   {
+    index: 4,
     name: 'Tool & Die Manufacturing',
     tagline: 'Tooling for the toolmakers.',
     desc: 'Die and mould manufacturers work with hardened steels, carbide, and complex 3D profiles. We supply specialist tooling for graphite machining, hard milling, EDM electrode machining, and precision cavity work.',
@@ -53,6 +59,7 @@ export const industries = [
     pdfUrl: '/pdf/korloy/KorloyMoldDieSolution.pdf',
   },
   {
+    index: 5,
     name: 'Heavy Engineering',
     tagline: 'Scale without compromise.',
     desc: 'Heavy engineering applications involve large-scale components, heavy cuts, and demanding machining environments. Our heavy-duty tooling solutions are designed to perform under extreme conditions with maximum material removal rates.',
@@ -64,10 +71,45 @@ export const industries = [
 ]
 
 export default function IndustriesPage() {
+  const [activeTab, setActiveTab] = useState<number>(0)
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const scrollToSection = (index: number) => {
+    setActiveTab(index)
+    const targetElement = sectionRefs.current[index]
+    if (targetElement) {
+      const headerOffset = 140
+      const elementPosition = targetElement.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.scrollY - headerOffset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200
+      sectionRefs.current.forEach((ref, index) => {
+        if (ref) {
+          const top = ref.offsetTop
+          const height = ref.offsetHeight
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveTab(index)
+          }
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 bg-background overflow-hidden">
+      <section className="relative pt-40 pb-16 bg-background overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -91,34 +133,56 @@ export default function IndustriesPage() {
               application — whether you machine titanium aero-parts or structural steel fabrications.
             </p>
           </FadeIn>
-
-          {/* Industry chips */}
-          <FadeIn delay={0.2} className="flex flex-wrap gap-3 mt-10">
-            {industries.map((ind) => (
-              <a
-                key={ind.name}
-                href={`#${ind.name.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-sm font-semibold px-5 py-2 rounded-full border border-border hover:border-brand-blue/40 hover:bg-primary/5 hover:text-brand-blue transition-all"
-              >
-                {ind.name}
-              </a>
-            ))}
-          </FadeIn>
         </div>
       </section>
 
+      {/* Sticky Tab Navigation */}
+      <div className="top-16 z-30 bg-background/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-2 overflow-x-auto scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            {industries.map((ind) => {
+              const isActive = activeTab === ind.index
+              return (
+                <button
+                  key={ind.name}
+                  type="button"
+                  onClick={() => scrollToSection(ind.index)}
+                  className={`text-sm font-semibold px-5 py-2 rounded-full whitespace-nowrap transition-all cursor-pointer select-none ${
+                    isActive
+                      ? 'bg-brand-blue text-white shadow-sm'
+                      : 'border border-border text-muted-foreground hover:border-brand-blue/40 hover:bg-primary/5 hover:text-brand-blue'
+                  }`}
+                >
+                  {ind.name}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* Industries alternating sections */}
       <section className="bg-background">
-        {industries.map((ind, i) => (
+        {industries.map((ind) => (
           <div
             key={ind.name}
-            id={ind.name.toLowerCase().replace(/\s+/g, '-')}
-            className={`py-24 ${i % 2 === 1 ? 'bg-muted/40' : 'bg-background'}`}
+            ref={(el) => {
+              sectionRefs.current[ind.index] = el
+            }}
+            className={`py-24 ${ind.index % 2 === 1 ? 'bg-muted/40' : 'bg-background'}`}
           >
             <div className="max-w-7xl mx-auto px-6">
-              <div className={`grid lg:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? 'lg:[direction:rtl]' : ''}`}>
+              <div
+                className={`grid lg:grid-cols-2 gap-16 items-center ${
+                  ind.index % 2 === 1 ? 'lg:[direction:rtl]' : ''
+                }`}
+              >
                 {/* Image */}
-                <FadeIn direction={i % 2 === 1 ? 'right' : 'left'}>
+                <FadeIn
+                  direction={ind.index % 2 === 1 ? 'left' : 'right'}
+                  delay={0.1}
+                  className="lg:[direction:ltr]"
+                >
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:[direction:ltr]">
                     <Image
                       src={ind.img}
@@ -136,7 +200,7 @@ export default function IndustriesPage() {
                 </FadeIn>
 
                 {/* Content */}
-                <FadeIn direction={i % 2 === 1 ? 'left' : 'right'} delay={0.1} className="lg:[direction:ltr]">
+                <FadeIn direction={ind.index % 2 === 1 ? 'left' : 'right'} delay={0.1} className="lg:[direction:ltr]">
                   <span className="text-[11px] tracking-[0.25em] uppercase text-brand-blue font-semibold block mb-3">
                     {ind.tagline}
                   </span>
@@ -174,7 +238,7 @@ export default function IndustriesPage() {
                     </div>
                   </div>
 
-                  {/* Cleaned Actions Bar */}
+                  {/* Actions Bar */}
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <a
                       href={ind.pdfUrl}
