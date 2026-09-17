@@ -114,7 +114,7 @@ export function ProductCategories() {
 
                     {/* Card Text Content */}
                     <div className="p-5">
-                      <Link href={`/products/${product.id}`}>
+                      <Link href={""}>
                         <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-brand-blue transition-colors">
                           {product.title}
                         </h3>
