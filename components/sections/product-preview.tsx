@@ -56,7 +56,7 @@ export function ProductPreview() {
         <div className="relative overflow-hidden group">
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          <div className="flex w-max animate-marquee-reverse group-hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
             {[...eminentbrands, ...eminentbrands].map((brand, i) => (
               <div key={i} className="px-3 flex shrink-0 items-center">
                 <div className="relative w-40 h-24 bg-white rounded-xl border border-border/80 shadow-sm flex items-center justify-center p-3">

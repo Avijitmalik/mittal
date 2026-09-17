@@ -53,16 +53,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand */}
         <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 group">
-           <Image 
-            src="/mittalgroup.png" 
-            alt="Mittal Logo" 
-            width={60} 
-            height={40}
-            priority 
-          />
+          <Link href="/" className="flex items-center gap-2 group">
+            <Image 
+              src="/mittalgroup.png" 
+              alt="Mittal Logo" 
+              width={60} 
+              height={40}
+              priority 
+            />
           </Link>
-          <p className="text-sm text-white/50 leading-relaxed mb-6">
+          <p className="text-sm text-white/50 leading-relaxed my-6">
             Trusted industrial tooling and machining solutions since 1988. Serving industries across India with precision and reliability.
           </p>
           <div className="flex items-center gap-3">
@@ -130,9 +130,6 @@ export function Footer() {
                 <a href="tel:+919215601909" className="text-sm text-white/60 hover:text-white transition-colors">
                   +91 92156 01909
                 </a>
-                {/* <a href="tel:+918569913390" className="text-sm text-white/60 hover:text-white transition-colors">
-                  +91 85699 13390
-                </a> */}
               </div>
             </li>
             <li className="flex items-center gap-3">
@@ -147,11 +144,24 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/30">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
+          <p>
             &copy; {new Date().getFullYear()} Mittal Industrial Tools. All rights reserved.
           </p>
-          <p className="text-xs text-white/30">
+          
+          <p>
+            Designed &amp; Developed by{' '}
+            <a
+              href="https://swachalit.co.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors font-medium underline underline-offset-2"
+            >
+              Swachalit Business Solutions Pvt. Ltd.
+            </a>
+          </p>
+
+          <p>
             Rohtak, Haryana, India
           </p>
         </div>
@@ -159,4 +169,3 @@ export function Footer() {
     </footer>
   )
 }
-
