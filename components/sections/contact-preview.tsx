@@ -9,7 +9,7 @@ const contacts = [
     icon: Phone,
     title: 'Call Us',
     value: '+91  92156 01909',
-    sub: '+91  92156 01909',
+    // sub: '+91  92156 01909',
     href: 'tel:+91 92156 01909',
   },
   {
