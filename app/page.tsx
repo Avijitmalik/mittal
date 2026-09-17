@@ -10,11 +10,13 @@ import { CatalogCTA } from '@/components/sections/catalog-cta'
 import { ContactPreview } from '@/components/sections/contact-preview'
 import { MajorCustomer } from '@/components/sections/major-customer'
 import { CustomerClient } from '@/components/sections/customer-client'
+import { ProductPreview } from '@/components/sections/product-preview'
 
 export default function HomePage() {
   return (
     <SiteLayout>
       <HeroSection />
+      <ProductPreview/>
       <AboutPreview />
       <ProductCategories />
       <BrandsMarquee />
